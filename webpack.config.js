@@ -15,6 +15,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(png|jpg|svg|jpeg|webp)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/pictures/[hash][ext]',
+        }
+      },
+      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -30,7 +37,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.(scss|css)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
